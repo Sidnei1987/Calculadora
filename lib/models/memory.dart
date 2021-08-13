@@ -5,10 +5,10 @@ class Memory {
 
   final _buffer = [0.0, 0.0];
   int _bufferIndex = 0;
-   var _operation;
+  String? _operation;
   String _value = '0';
   bool _wipeValue = false;
-  var _lastCommand;
+  String? _lastCommand;
 
   void applyCommand(String command) {
     if(_isReplacingOperation(command)){
@@ -47,7 +47,7 @@ class Memory {
       _value = _value.endsWith('.0') ? _value.split('.') [0] : _value;
 
 
-      _operation = isEqualSign ? Null : newOperation;
+      _operation = isEqualSign ? null : newOperation;
       _bufferIndex = isEqualSign ? 0 : 1;
     }
       _wipeValue = true;//!isEqualSign;
